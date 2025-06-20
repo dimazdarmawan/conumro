@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berkah Umroh - Perjalanan Spiritual Anda</title>
+    <!-- Tailwind CSS CDN untuk styling cepat -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN untuk ikon -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* CSS Umum untuk Font dan Layout Dasar */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Mencegah scrolling horizontal */
+            min-height: 100vh; /* Memastikan body mengisi seluruh viewport */
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex-grow: 1; /* Memastikan main mengisi ruang yang tersisa */
+        }
+
+        /* Styling untuk Scrollbar Kustom pada Chatbot */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Definisi Keyframe Animasi untuk Efek Visual */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Penerapan Animasi ke Kelas Tailwind */
+        .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+        .animate-bounce-in { animation: bounceIn 0.8s ease-out forwards; }
+        .animate-slide-in-right { animation: slideInRight 0.3s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar Section -->
+    <nav class="bg-gradient-to-r from-emerald-600 to-green-700 shadow-lg p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-white text-3xl font-bold rounded-lg p-2 transform transition-transform duration-300 hover:scale-105">
+                <span class="text-yellow-300">Berkah</span>
+                <span class="text-white">Umroh</span>
+            </div>
+            <div class="flex space-x-6">
+                <button onclick="showPage('home-page')" class="flex items-center space-x-2 text-white hover:text-yellow-200 transition-colors duration-300 px-4 py-2 rounded-md hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50">
+                    <i data-lucide="home" class="w-5 h-5"></i>
+                    <span class="font-semibold text-lg">Beranda</span>
+                </button>
+                <button onclick="showPage('packages-page')" class="flex items-center space-x-2 text-white hover:text-yellow-200 transition-colors duration-300 px-4 py-2 rounded-md hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50">
+                    <i data-lucide="package" class="w-5 h-5"></i>
+                    <span class="font-semibold text-lg">Paket</span>
+                </button>
+                <button onclick="showPage('about-page')" class="flex items-center space-x-2 text-white hover:text-yellow-200 transition-colors duration-300 px-4 py-2 rounded-md hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50">
+                    <i data-lucide="info" class="w-5 h-5"></i>
+                    <span class="font-semibold text-lg">Tentang Kami</span>
+                </button>
+                <button onclick="showPage('contact-page')" class="flex items-center space-x-2 text-white hover:text-yellow-200 transition-colors duration-300 px-4 py-2 rounded-md hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    <span class="font-semibold text-lg">Kontak</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area - Menampung semua halaman -->
+    <main id="main-content" class="flex-grow">
+        <!-- Home Page Content -->
+        <section id="home-page" class="relative bg-gradient-to-br from-emerald-100 to-green-100 py-20 px-4 flex items-center justify-center min-h-[calc(100vh-160px)]">
+            <div
+                class="absolute inset-0 bg-cover bg-center opacity-40 blur-sm"
+                style="background-image: url('https://placehold.co/1200x800/d4edda/007bff?text=Masjidil+Haram')"
+                role="img"
+                aria-label="Masjidil Haram"
+            ></div>
+            <div class="relative z-10 text-center bg-white bg-opacity-90 p-10 rounded-xl shadow-2xl max-w-4xl border-4 border-yellow-400 transform transition-transform duration-500 hover:scale-105">
+                <h1 class="text-6xl font-extrabold text-emerald-800 mb-6 leading-tight animate-fade-in-down">
+                    Selamat Datang di <span class="text-yellow-600">Berkah Umroh</span>
+                </h1>
+                <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto animate-fade-in">
+                    Wujudkan impian ibadah Anda dengan paket Umroh terbaik, nyaman, dan penuh berkah. Kami hadir untuk melayani perjalanan spiritual Anda ke Tanah Suci.
+                </p>
+                <button onclick="showPage('packages-page')" class="bg-yellow-500 text-white font-bold py-4 px-8 rounded-full text-xl shadow-lg hover:bg-yellow-600 transition-all duration-300 transform hover:scale-110 active:scale-95 animate-bounce-in">
+                    Lihat Paket Kami
+                </button>
+            </div>
+        </section>
+
+        <!-- Packages Page Content -->
+        <section id="packages-page" class="py-16 px-4 bg-gray-50 min-h-[calc(100vh-160px)] hidden">
+            <div class="container mx-auto text-center mb-12">
+                <h2 class="text-5xl font-extrabold text-emerald-800 mb-6 animate-fade-in-down">
+                    Pilihan <span class="text-yellow-600">Paket</span> Umroh
+                </h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto animate-fade-in">
+                    Kami menawarkan berbagai paket Umroh yang dapat disesuaikan dengan kebutuhan dan anggaran Anda. Setiap paket dirancang untuk memberikan pengalaman ibadah yang khusyuk dan tak terlupakan.
+                </p>
+            </div>
+            <div id="packages-container" class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+                <!-- Package cards will be injected here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- About Page Content -->
+        <section id="about-page" class="py-16 px-4 bg-gray-50 min-h-[calc(100vh-160px)] hidden">
+            <div class="container mx-auto max-w-4xl bg-white rounded-xl shadow-xl p-10 border-4 border-emerald-300">
+                <h2 class="text-5xl font-extrabold text-emerald-800 text-center mb-8 animate-fade-in-down">
+                    Tentang <span class="text-yellow-600">Kami</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x400/dbe7e1/000?text=Tim+Berkah+Umroh" alt="Tim Berkah Umroh" class="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/dbe7e1/000?text=Tim+Kami';" />
+                    </div>
+                    <div>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6 animate-fade-in">
+                            Berkah Umroh didirikan dengan visi untuk menjadi mitra terpercaya dalam perjalanan spiritual Anda menuju Tanah Suci. Kami memahami bahwa Umroh adalah ibadah yang sangat penting, oleh karena itu kami berkomitmen untuk menyediakan layanan terbaik dengan integritas dan profesionalisme.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6 animate-fade-in">
+                            Dengan tim yang berpengalaman dan berdedikasi, kami mengurus setiap detail perjalanan Anda, mulai dari persiapan dokumen, akomodasi, transportasi, hingga bimbingan ibadah. Kepuasan dan kenyamanan jamaah adalah prioritas utama kami.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed animate-fade-in">
+                            Bergabunglah dengan ribuan jamaah yang telah merasakan kenyamanan dan kekhusyukan beribadah bersama Berkah Umroh.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page Content -->
+        <section id="contact-page" class="py-16 px-4 bg-gray-50 min-h-[calc(100vh-160px)] hidden">
+            <div class="container mx-auto max-w-3xl bg-white rounded-xl shadow-xl p-10 border-4 border-emerald-300 text-center">
+                <h2 class="text-5xl font-extrabold text-emerald-800 mb-8 animate-fade-in-down">
+                    Hubungi <span class="text-yellow-600">Kami</span>
+                </h2>
+                <p class="text-xl text-gray-700 mb-8 animate-fade-in">
+                    Kami siap membantu Anda merencanakan perjalanan Umroh. Jangan ragu untuk menghubungi kami melalui informasi di bawah ini atau mengisi formulir kontak.
+                </p>
+                <div class="space-y-6 text-left inline-block">
+                    <div class="flex items-center text-gray-800 text-xl">
+                        <i data-lucide="phone" class="w-7 h-7 mr-4 text-emerald-600"></i>
+                        <span>Telepon: +62 812-3456-7890</span>
+                    </div>
+                    <div class="flex items-center text-gray-800 text-xl">
+                        <i data-lucide="message-square" class="w-7 h-7 mr-4 text-emerald-600"></i>
+                        <span>Email: info@berkahumroh.com</span>
+                    </div>
+                    <div class="flex items-center text-gray-800 text-xl">
+                        <i data-lucide="home" class="w-7 h-7 mr-4 text-emerald-600"></i>
+                        <span>Alamat: Jl. Contoh No. 123, Jakarta, Indonesia</span>
+                    </div>
+                </div>
+                <div class="mt-10">
+                    <h3 class="text-3xl font-bold text-emerald-700 mb-6">Kirim Pesan kepada Kami</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-lg font-medium text-gray-700 text-left mb-2">Nama Lengkap</label>
+                            <input
+                                type="text"
+                                id="name"
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 text-lg"
+                                placeholder="Nama Anda"
+                            />
+                        </div>
+                        <div>
+                            <label for="email" class="block text-lg font-medium text-gray-700 text-left mb-2">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 text-lg"
+                                placeholder="email@contoh.com"
+                            />
+                        </div>
+                        <div>
+                            <label for="message" class="block text-lg font-medium text-gray-700 text-left mb-2">Pesan Anda</label>
+                            <textarea
+                                id="message"
+                                rows="5"
+                                class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500 text-lg"
+                                placeholder="Tulis pesan Anda di sini..."
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full bg-emerald-600 text-white font-bold py-3 px-6 rounded-full text-xl shadow-md hover:bg-emerald-700 transition-colors duration-300 transform hover:scale-105 active:scale-95"
+                        >
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white p-6 mt-10 shadow-inner">
+        <div class="container mx-auto text-center">
+            <p class="text-lg mb-2">© <span id="current-year"></span> Berkah Umroh. Semua Hak Dilindungi.</p>
+            <p class="text-sm">Jelajahi spiritualitas Anda bersama kami.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Facebook</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-toggle" class="fixed bottom-6 right-6 bg-emerald-600 text-white p-4 rounded-full shadow-lg hover:bg-emerald-700 transition-transform duration-300 transform hover:scale-110 z-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-50" aria-label="Buka Chatbot">
+        <i data-lucide="message-square" class="w-8 h-8"></i>
+    </button>
+
+    <!-- Chatbot Window -->
+    <div id="chatbot-window" class="fixed bottom-24 right-6 w-80 md:w-96 h-[500px] bg-white rounded-xl shadow-2xl flex-col z-50 border-4 border-emerald-400 animate-slide-in-right hidden">
+        <div class="bg-gradient-to-r from-emerald-600 to-green-700 text-white p-4 rounded-t-lg flex justify-between items-center">
+            <h3 class="text-xl font-bold">Chat AI Berkah Umroh</h3>
+            <button id="chatbot-close" class="text-white hover:text-gray-200" aria-label="Tutup Chatbot">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div id="messages-container" class="flex-grow p-4 overflow-y-auto space-y-4 bg-gray-100 custom-scrollbar">
+            <div class="text-center text-gray-500 italic mt-10">
+                Halo! Ada yang bisa saya bantu tentang paket Umroh kami?
+            </div>
+        </div>
+        <div class="p-4 border-t border-gray-200 bg-white">
+            <div class="flex space-x-2">
+                <input
+                    type="text"
+                    id="chat-input"
+                    class="flex-grow px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    placeholder="Tanyakan sesuatu..."
+                />
+                <button
+                    id="send-button"
+                    class="bg-emerald-600 text-white p-3 rounded-full shadow-md hover:bg-emerald-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    aria-label="Kirim Pesan"
+                >
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript untuk Interaktivitas Halaman -->
+    <script>
+        // Inisialisasi ikon Lucide setelah DOM dimuat
+        lucide.createIcons();
+
+        // Mengatur tahun saat ini di footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Daftar ID halaman untuk pengelolaan visibilitas
+        const pages = ['home-page', 'packages-page', 'about-page', 'contact-page'];
+        let currentPage = 'home-page'; // Halaman awal yang aktif
+
+        /**
+         * Menampilkan halaman yang dipilih dan menyembunyikan halaman lainnya.
+         * @param {string} pageId - ID dari halaman yang akan ditampilkan.
+         */
+        function showPage(pageId) {
+            console.log('Navigating to page:', pageId); // Debugging log
+            // Sembunyikan semua halaman terlebih dahulu
+            pages.forEach(id => {
+                const pageElement = document.getElementById(id);
+                if (pageElement) {
+                    pageElement.classList.add('hidden');
+                }
+            });
+
+            // Tampilkan halaman yang dipilih
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.remove('hidden');
+            }
+            currentPage = pageId;
+
+            // Render ulang ikon Lucide jika ada elemen dinamis baru
+            lucide.createIcons();
+        }
+
+        // Data Paket Umroh
+        const packagesData = [
+            {
+                name: "Paket Ekonomi",
+                duration: "9 Hari",
+                price: "Rp 25.000.000",
+                features: ["Akomodasi Bintang 3", "Transportasi Bus AC", "Makan 3x Sehari", "Pembimbing Berpengalaman"],
+                image: "https://placehold.co/400x250/dbe7e1/000?text=Umroh+Ekonomi"
+            },
+            {
+                name: "Paket Reguler",
+                duration: "12 Hari",
+                price: "Rp 35.000.000",
+                features: ["Akomodasi Bintang 4", "Transportasi Bus AC & Pesawat Domestik", "Makan 3x Sehari", "Pembimbing & Tim Medis", "City Tour Madinah & Mekah"],
+                image: "https://placehold.co/400x250/c0d7ca/000?text=Umroh+Reguler"
+            },
+            {
+                name: "Paket Premium",
+                duration: "14 Hari",
+                price: "Rp 50.000.000",
+                features: ["Akomodasi Bintang 5", "Transportasi Pesawat Langsung & Bus VIP", "Makan Mewah 3x Sehari", "Pembimbing & Dokter Pribadi", "Ziarah Eksklusif"],
+                image: "https://placehold.co/400x250/a3bfaf/000?text=Umroh+Premium"
+            },
+        ];
+
+        /**
+         * Merender kartu-kartu paket Umroh secara dinamis ke dalam container.
+         */
+        function renderPackages() {
+            const container = document.getElementById('packages-container');
+            if (container) {
+                container.innerHTML = packagesData.map(pkg => `
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-emerald-200">
+                        <img src="${pkg.image}" alt="Gambar ${pkg.name}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x250/dbe7e1/000?text=Gambar+Umroh';" />
+                        <div class="p-6">
+                            <h3 class="text-3xl font-bold text-emerald-700 mb-3">${pkg.name}</h3>
+                            <p class="text-xl text-gray-600 mb-4 flex items-center">
+                                <i data-lucide="info" class="w-5 h-5 mr-2 text-yellow-500"></i>
+                                ${pkg.duration}
+                            </p>
+                            <p class="text-4xl font-extrabold text-yellow-600 mb-5">${pkg.price}</p>
+                            <ul class="text-gray-700 text-lg mb-6 space-y-2">
+                                ${pkg.features.map(feature => `
+                                    <li class="flex items-center">
+                                        <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        ${feature}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                            <button class="w-full bg-emerald-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-md hover:bg-emerald-700 transition-colors duration-300 transform hover:scale-105 active:scale-95">
+                                Pilih Paket Ini
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+                // Pastikan ikon Lucide juga di-render untuk konten dinamis
+                lucide.createIcons();
+            }
+        }
+
+        // --- Logika Chatbot ---
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const messagesContainer = document.getElementById('messages-container');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('send-button');
+
+        // Event listener untuk membuka/menutup chatbot
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('hidden');
+            if (!chatbotWindow.classList.contains('hidden')) {
+                chatbotWindow.classList.add('flex'); // Pastikan display flex saat terlihat
+                messagesContainer.scrollTop = messagesContainer.scrollHeight; // Gulir ke bawah saat dibuka
+            } else {
+                chatbotWindow.classList.remove('flex'); // Hapus display flex saat tersembunyi
+            }
+        });
+
+        // Event listener untuk tombol tutup chatbot
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.add('hidden');
+            chatbotWindow.classList.remove('flex');
+        });
+
+        // Event listener untuk menekan tombol Enter pada input chat
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Event listener untuk tombol kirim pesan
+        sendButton.addEventListener('click', sendMessage);
+
+        /**
+         * Mengirim pesan ke AI dan menampilkan respons.
+         */
+        async function sendMessage() {
+            const input = chatInput.value.trim();
+            if (input === '') return;
+
+            // Tambahkan pesan pengguna ke tampilan
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.className = 'flex justify-end';
+            userMessageDiv.innerHTML = `
+                <div class="max-w-[75%] px-4 py-2 rounded-lg shadow bg-blue-500 text-white rounded-br-none">
+                    ${input}
+                </div>
+            `;
+            messagesContainer.appendChild(userMessageDiv);
+            chatInput.value = ''; // Kosongkan input
+            messagesContainer.scrollTop = messagesContainer.scrollHeight; // Gulir ke bawah
+
+            // Tampilkan indikator mengetik
+            const typingIndicator = document.createElement('div');
+            typingIndicator.id = 'typing-indicator';
+            typingIndicator.className = 'flex justify-start';
+            typingIndicator.innerHTML = `
+                <div class="max-w-[75%] px-4 py-2 rounded-lg shadow bg-gray-300 text-gray-800 rounded-bl-none">
+                    <svg class="animate-spin inline-block mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                    </svg>
+                    Mengetik...
+                </div>
+            `;
+            messagesContainer.appendChild(typingIndicator);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            chatInput.disabled = true; // Nonaktifkan input saat memuat
+            sendButton.disabled = true; // Nonaktifkan tombol saat memuat
+
+            try {
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: input }] });
+                const payload = { contents: chatHistory };
+                // API Key untuk Gemini (sudah dimasukkan)
+                const apiKey = "AIzaSyAV_6nhNzXS3MtQgcZy8JZxOKD3haMgZm0";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                let aiResponseText;
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    aiResponseText = result.candidates[0].content.parts[0].text;
+                } else {
+                    aiResponseText = 'Maaf, saya tidak dapat memproses permintaan Anda saat ini. Silakan coba lagi.';
+                }
+
+                // Hapus indikator mengetik
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+
+                // Tambahkan pesan AI ke tampilan
+                const aiMessageDiv = document.createElement('div');
+                aiMessageDiv.className = 'flex justify-start';
+                aiMessageDiv.innerHTML = `
+                    <div class="max-w-[75%] px-4 py-2 rounded-lg shadow bg-gray-300 text-gray-800 rounded-bl-none">
+                        ${aiResponseText}
+                    </div>
+                `;
+                messagesContainer.appendChild(aiMessageDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+                const errorMessageDiv = document.createElement('div');
+                errorMessageDiv.className = 'flex justify-start';
+                errorMessageDiv.innerHTML = `
+                    <div class="max-w-[75%] px-4 py-2 rounded-lg shadow bg-red-300 text-red-800 rounded-bl-none">
+                        Terjadi kesalahan saat berkomunikasi dengan AI. Silakan coba lagi.
+                    </div>
+                `;
+                messagesContainer.appendChild(errorMessageDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            } finally {
+                chatInput.disabled = false; // Aktifkan kembali input
+                sendButton.disabled = false; // Aktifkan kembali tombol
+                chatInput.focus(); // Fokus kembali ke input
+            }
+        }
+
+        // --- Logika Formulir Kontak ---
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Mencegah pengiriman formulir default
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                console.log('Formulir Kontak Dikirim:');
+                console.log('Nama:', name);
+                console.log('Email:', email);
+                console.log('Pesan:', message);
+
+                // Di sini Anda akan mengirim data ini ke server backend (contoh: via Fetch API atau XMLHttpRequest).
+                // Untuk contoh sederhana ini, kita hanya akan menampilkan pesan alert.
+                alert('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda.');
+
+                // Kosongkan formulir
+                contactForm.reset();
+            });
+        }
+
+        // Pengaturan awal saat jendela dimuat
+        window.onload = function() {
+            showPage('home-page'); // Tampilkan halaman beranda secara default
+            renderPackages(); // Render kartu paket
+        };
+    </script>
+</body>
+</html>
